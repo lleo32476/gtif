@@ -11,6 +11,7 @@ html, body {
     font-family: Georgia, serif;
 }
 
+
 #hero {
     position: relative;
     background-image: url('Georgetown_Image_Temp.avif');
@@ -147,4 +148,63 @@ html, body {
 
 #footer p {
     margin: 4px 0;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+
+    /* Stack logo and menu vertically */
+    #top {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 24px;
+        gap: 14px;
+    }
+
+    /* Smaller menu gap on mobile */
+    #menu {
+        gap: 16px;
+    }
+
+    #menu p {
+        font-size: 0.85rem;
+    }
+
+    /* Smaller slogan text */
+    #slogan {
+        left: 24px;
+        bottom: 50px;
+    }
+
+    #slogan h2 {
+        font-size: 1.8rem;
+    }
+
+    #slogan p {
+        font-size: 0.95rem;
+    }
+
+    /* Stack stats vertically */
+    #stats {
+        flex-direction: column;
+        gap: 36px;
+        padding: 40px 24px;
+    }
+
+    .stat h2 {
+        font-size: 2.2rem;
+    }
+
+
+    #about-strip {
+        padding: 60px 24px;
+    }
+
+    #about-strip h2 {
+        font-size: 1.6rem;
+    }
+
+    #apply-btn {
+        width: 100%;
+    }
 }
