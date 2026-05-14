@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – GTIF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="hero" style="height: 40vh;">
+        <div id="top">
+            <div id="logo"><h1>GTIF</h1></div>
+            <div id="menu">
+                <a href="index.html">Home</a>
+                <p>About</p>
+                <p>Team</p>
+                <a href="contact.html" style="color: #C8973A;">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-section">
+        <div id="contact-left">
+            <h2>Contact Us</h2>
+            <p>Questions about membership, recruiting, or partnerships? Reach out and we'll get back to you.</p>
+        </div>
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" id="apply-btn">Submit</button>
+        </form>
+    </div>
+
+    <div id="footer">
+        <p>© 2026 Georgetown Technology Investment Fund</p>
+        <p>Georgetown University · Washington, D.C.</p>
+    </div>
+
+</body>
+</html>

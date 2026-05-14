@@ -14,7 +14,7 @@ html, body {
 
 #hero {
     position: relative;
-    background-image: url('Georgetown_Image_Temp.avif');
+    background-image: url('Georgetown_Backdrop.jpeg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -41,14 +41,15 @@ html, body {
     gap: 28px;
 }
 
-#menu p {
+#menu a {
     color: white;
-    cursor: pointer;
+    text-decoration: none;
     font-size: 0.95rem;
     letter-spacing: 0.05em;
+    cursor: pointer;
 }
 
-#menu p:hover {
+#menu a:hover {
     color: #C8973A;
 }
 
@@ -206,5 +207,87 @@ html, body {
 
     #apply-btn {
         width: 100%;
+    }
+}
+
+#contact-section {
+    display: flex;
+    gap: 80px;
+    padding: 80px 100px;
+    background: #fff;
+    align-items: flex-start;
+}
+
+#contact-left {
+    flex: 1;
+    max-width: 300px;
+}
+
+#contact-left h2 {
+    font-size: 2rem;
+    color: #041E42;
+    margin-bottom: 16px;
+}
+
+#contact-left p {
+    color: rgba(0,0,0,0.6);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+#contact-form {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.5);
+}
+
+.form-group input,
+.form-group textarea {
+    border: 1px solid rgba(0,0,0,0.15);
+    padding: 10px 12px;
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #041E42;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #contact-section {
+        flex-direction: column;
+        padding: 50px 24px;
+        gap: 40px;
+    }
+
+    #contact-left {
+        max-width: 100%;
+    }
+
+    .form-row {
+        flex-direction: column;
     }
 }
