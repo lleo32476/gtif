@@ -1,2 +1,333 @@
-<img src="Art.jpeg">
-<img src="Roncallo_Ricardo_132-_783-retouched.jpeg>"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team – GTIF</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+#team-tabs {
+display: flex;
+background: #041E42;
+padding: 0 60px;
+gap: 0;
+border-bottom: 2px solid rgba(200, 151, 58, 0.3);
+}
+
+.team-tab {
+padding: 18px 30px;
+color: rgba(255,255,255,0.5);
+font-family: Georgia, serif;
+font-size: 0.85rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+cursor: pointer;
+border-bottom: 2px solid transparent;
+margin-bottom: -2px;
+transition: color 0.2s, border-color 0.2s;
+}
+
+.team-tab:hover {
+color: rgba(255,255,255,0.8);
+}
+
+.team-tab.active {
+color: #C8973A;
+border-bottom: 2px solid #C8973A;
+}
+
+.team-page {
+display: none;
+background: #f8f6f2;
+min-height: 50vh;
+}
+
+.team-page.active {
+display: block;
+}
+
+#exec-page {
+padding: 70px 60px;
+}
+
+#exec-page .section-label {
+font-size: 0.72rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 10px;
+font-family: Georgia, serif;
+}
+
+#exec-page .section-title {
+font-family: Georgia, serif;
+font-size: 1.9rem;
+color: #041E42;
+margin-bottom: 50px;
+font-weight: bold;
+}
+
+#members-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 24px;
+max-width: 900px;
+}
+
+.member-card {
+background: white;
+border: 1px solid rgba(0,0,0,0.08);
+overflow: hidden;
+}
+
+.member-header {
+display: flex;
+align-items: center;
+gap: 20px;
+padding: 24px;
+cursor: pointer;
+transition: background 0.15s;
+}
+
+.member-header:hover {
+background: #fafafa;
+}
+
+.member-photo {
+width: 72px;
+height: 72px;
+border-radius: 50%;
+object-fit: cover;
+object-position: center top;
+flex-shrink: 0;
+border: 2px solid rgba(4,30,66,0.1);
+}
+
+.member-info {
+flex: 1;
+}
+
+.member-name {
+font-family: Georgia, serif;
+font-size: 1.05rem;
+font-weight: bold;
+color: #041E42;
+margin-bottom: 4px;
+}
+
+.member-role {
+font-size: 0.75rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: #C8973A;
+}
+
+.member-toggle {
+width: 28px;
+height: 28px;
+border-radius: 50%;
+background: #041E42;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+transition: background 0.2s, transform 0.3s;
+}
+
+.member-toggle svg {
+width: 12px;
+height: 12px;
+fill: white;
+transition: transform 0.3s;
+}
+
+.member-card.open .member-toggle {
+background: #C8973A;
+}
+
+.member-card.open .member-toggle svg {
+transform: rotate(45deg);
+}
+
+.member-dropdown {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.35s ease, padding 0.3s;
+border-top: 1px solid transparent;
+}
+
+.member-card.open .member-dropdown {
+max-height: 300px;
+border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.member-dropdown-inner {
+padding: 20px 24px 24px;
+}
+
+.member-dropdown-inner p {
+font-size: 0.9rem;
+line-height: 1.75;
+color: rgba(0,0,0,0.65);
+}
+
+.member-dropdown-inner .detail-line {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+margin-bottom: 8px;
+font-size: 0.88rem;
+color: rgba(0,0,0,0.7);
+}
+
+.detail-line .dot {
+color: #C8973A;
+font-size: 1.1rem;
+line-height: 1.4;
+flex-shrink: 0;
+}
+
+#advisory-page {
+padding: 80px 60px;
+text-align: center;
+}
+
+#advisory-page p {
+color: rgba(0,0,0,0.35);
+font-size: 0.9rem;
+letter-spacing: 0.08em;
+font-family: Georgia, serif;
+}
+
+@media (max-width: 700px) {
+#team-tabs {
+padding: 0 16px;
+}
+
+#exec-page {
+padding: 44px 24px;
+}
+
+#members-grid {
+grid-template-columns: 1fr;
+}
+
+#advisory-page {
+padding: 60px 24px;
+}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR + BANNER -->
+<div id="hero" style="height: 40vh;">
+    <div id="top">
+        <div id="logo"><h1>GTIF</h1></div>
+        <div id="menu">
+            <a href="index.html">Home</a>
+            <p>About</p>
+            <a href="team.html" style="color: #C8973A;">Team</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</div>
+
+<!-- TABS -->
+<div id="team-tabs">
+<div class="team-tab active" onclick="switchTab('exec', this)">Executive Board</div>
+<div class="team-tab" onclick="switchTab('advisory', this)">Advisory</div>
+</div>
+
+<!-- EXECUTIVE BOARD PAGE -->
+<div id="exec-page" class="team-page active">
+<p class="section-label">Leadership</p>
+<h2 class="section-title">Meet the Founders</h2>
+
+<div id="members-grid">
+
+<!-- Ricky -->
+<div class="member-card" id="card-ricky">
+<div class="member-header" onclick="toggleCard('card-ricky')">
+<img class="member-photo" src="Roncallo_Ricardo_132-_783-retouched.jpeg" alt="Ricky">
+<div class="member-info">
+<div class="member-name">Ricky</div>
+<div class="member-role">Co-Founder</div>
+</div>
+<div class="member-toggle">
+<svg viewBox="0 0 12 12"><path d="M6 0v12M0 6h12"/></svg>
+</div>
+</div>
+<div class="member-dropdown">
+<div class="member-dropdown-inner">
+<div class="detail-line">
+<span class="dot">·</span>
+<span>Incoming Investment Banking Summer Analyst at BMO Capital Markets</span>
+</div>
+<div class="detail-line">
+<span class="dot">·</span>
+<span>Georgetown University</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Artur -->
+<div class="member-card" id="card-artur">
+<div class="member-header" onclick="toggleCard('card-artur')">
+<img class="member-photo" src="Art.jpeg" alt="Artur">
+<div class="member-info">
+<div class="member-name">Artur</div>
+<div class="member-role">Co-Founder</div>
+</div>
+<div class="member-toggle">
+<svg viewBox="0 0 12 12"><path d="M6 0v12M0 6h12"/></svg>
+</div>
+</div>
+<div class="member-dropdown">
+<div class="member-dropdown-inner">
+<div class="detail-line">
+<span class="dot">·</span>
+<span>Incoming Investment Banking Summer Analyst at Lincoln International</span>
+</div>
+<div class="detail-line">
+<span class="dot">·</span>
+<span>Georgetown University</span>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ADVISORY PAGE -->
+<div id="advisory-page" class="team-page">
+<p>Advisory board coming soon.</p>
+</div>
+
+<!-- FOOTER -->
+<div id="footer">
+<p>© 2026 Georgetown Technology Investment Fund</p>
+<p>Georgetown University · Washington, D.C.</p>
+</div>
+
+<script>
+function switchTab(page, el) {
+document.querySelectorAll('.team-tab').forEach(t => t.classList.remove('active'));
+el.classList.add('active');
+document.querySelectorAll('.team-page').forEach(p => p.classList.remove('active'));
+const target = page === 'exec' ? 'exec-page' : 'advisory-page';
+document.getElementById(target).classList.add('active');
+}
+
+function toggleCard(id) {
+const card = document.getElementById(id);
+card.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
