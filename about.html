@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – GTIF</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+#about-slogan {
+position: absolute;
+bottom: 40px;
+left: 40px;
+color: white;
+}
+
+#about-slogan h2 {
+font-size: 3rem;
+font-weight: bold;
+text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+#about-slogan p {
+font-size: 1.1rem;
+margin-top: 10px;
+max-width: 560px;
+line-height: 1.6;
+text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+letter-spacing: 0.05em;
+}
+
+#who-we-are {
+display: flex;
+gap: 80px;
+padding: 90px 100px;
+background: #fff;
+align-items: flex-start;
+}
+
+#who-left {
+flex: 1;
+max-width: 280px;
+}
+
+#who-left p {
+font-size: 0.72rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 10px;
+}
+
+#who-left h2 {
+font-size: 2rem;
+color: #041E42;
+line-height: 1.25;
+}
+
+#who-right {
+flex: 2;
+}
+
+#who-right p {
+font-size: 1rem;
+line-height: 1.9;
+color: rgba(0,0,0,0.65);
+}
+
+#mission-vision {
+display: flex;
+gap: 60px;
+padding: 80px 100px;
+background: #041E42;
+}
+
+#mission-block {
+flex: 1;
+border-left: 2px solid #C8973A;
+padding-left: 28px;
+}
+
+#mission-block h3 {
+font-size: 0.72rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 14px;
+}
+
+#mission-block p {
+font-size: 1.05rem;
+color: white;
+line-height: 1.75;
+}
+
+#vision-block {
+flex: 1;
+border-left: 2px solid #C8973A;
+padding-left: 28px;
+}
+
+#vision-block h3 {
+font-size: 0.72rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 14px;
+}
+
+#vision-block p {
+font-size: 1.05rem;
+color: white;
+line-height: 1.75;
+}
+
+#why-gtif {
+display: flex;
+gap: 80px;
+padding: 90px 100px;
+background: #f8f6f2;
+align-items: flex-start;
+}
+
+#why-left {
+flex: 1;
+max-width: 280px;
+}
+
+#why-left p {
+font-size: 0.72rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 10px;
+}
+
+#why-left h2 {
+font-size: 2rem;
+color: #041E42;
+line-height: 1.25;
+}
+
+#why-right {
+flex: 2;
+}
+
+#why-right p {
+font-size: 1rem;
+line-height: 1.9;
+color: rgba(0,0,0,0.65);
+}
+
+#why-tech {
+display: flex;
+gap: 80px;
+padding: 90px 100px;
+background: #000;
+align-items: flex-start;
+}
+
+#tech-left {
+flex: 1;
+max-width: 280px;
+}
+
+#tech-left p {
+font-size: 0.72rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 10px;
+}
+
+#tech-left h2 {
+font-size: 2rem;
+color: white;
+line-height: 1.25;
+}
+
+#tech-right {
+flex: 2;
+}
+
+#tech-right p {
+font-size: 1rem;
+line-height: 1.9;
+color: rgba(255,255,255,0.65);
+}
+
+#what-we-do {
+padding: 90px 100px;
+background: #fff;
+}
+
+#what-we-do p.eyebrow {
+font-size: 0.72rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 10px;
+}
+
+#what-we-do h2 {
+font-size: 2rem;
+color: #041E42;
+margin-bottom: 50px;
+}
+
+#what-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.what-card {
+background: #f8f6f2;
+border: 1px solid rgba(0,0,0,0.08);
+padding: 28px 24px;
+}
+
+.what-card span {
+font-size: 1.4rem;
+display: block;
+margin-bottom: 14px;
+}
+
+.what-card h4 {
+font-size: 0.82rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: #041E42;
+margin-bottom: 10px;
+}
+
+.what-card p {
+font-size: 0.9rem;
+line-height: 1.7;
+color: rgba(0,0,0,0.58);
+}
+
+#training {
+padding: 90px 100px;
+background: #041E42;
+}
+
+#training p.eyebrow {
+font-size: 0.72rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 10px;
+}
+
+#training h2 {
+font-size: 2rem;
+color: white;
+margin-bottom: 50px;
+}
+
+#process-steps {
+display: flex;
+gap: 0;
+border-top: 1px solid rgba(255,255,255,0.12);
+margin-bottom: 50px;
+}
+
+.process-step {
+flex: 1;
+padding: 32px 28px 32px 0;
+border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.process-step:last-child {
+border-right: none;
+padding-left: 28px;
+}
+
+.process-step:not(:first-child) {
+padding-left: 28px;
+}
+
+.process-step p.step-num {
+font-size: 0.72rem;
+letter-spacing: 0.2em;
+color: #C8973A;
+text-transform: uppercase;
+margin-bottom: 12px;
+}
+
+.process-step h4 {
+font-size: 1rem;
+color: white;
+margin-bottom: 10px;
+}
+
+.process-step p.step-desc {
+font-size: 0.88rem;
+line-height: 1.7;
+color: rgba(255,255,255,0.55);
+}
+
+#training-body p {
+font-size: 1rem;
+line-height: 1.9;
+color: rgba(255,255,255,0.65);
+max-width: 760px;
+}
+
+#community {
+display: flex;
+gap: 80px;
+padding: 90px 100px;
+background: #f8f6f2;
+align-items: flex-start;
+}
+
+#community-left {
+flex: 1;
+max-width: 280px;
+}
+
+#community-left p {
+font-size: 0.72rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: #C8973A;
+margin-bottom: 10px;
+}
+
+#community-left h2 {
+font-size: 2rem;
+color: #041E42;
+line-height: 1.25;
+}
+
+#community-right {
+flex: 2;
+}
+
+#community-right p {
+font-size: 1rem;
+line-height: 1.9;
+color: rgba(0,0,0,0.65);
+}
+
+
+@media (max-width: 600px) {
+
+#about-slogan {
+left: 24px;
+bottom: 50px;
+}
+
+#about-slogan h2 {
+font-size: 1.8rem;
+}
+
+#about-slogan p {
+font-size: 0.95rem;
+}
+
+#who-we-are {
+flex-direction: column;
+padding: 60px 24px;
+gap: 30px;
+}
+
+#who-left {
+max-width: 100%;
+}
+
+#mission-vision {
+flex-direction: column;
+padding: 60px 24px;
+gap: 40px;
+}
+
+#why-gtif {
+flex-direction: column;
+padding: 60px 24px;
+gap: 30px;
+}
+
+#why-left {
+max-width: 100%;
+}
+
+#why-tech {
+flex-direction: column;
+padding: 60px 24px;
+gap: 30px;
+}
+
+#tech-left {
+max-width: 100%;
+}
+
+#what-we-do {
+padding: 60px 24px;
+}
+
+#what-grid {
+grid-template-columns: 1fr;
+}
+
+#training {
+padding: 60px 24px;
+}
+
+#process-steps {
+flex-direction: column;
+border-top: none;
+}
+
+.process-step {
+border-right: none;
+border-top: 1px solid rgba(255,255,255,0.12);
+padding: 24px 0 !important;
+}
+
+#community {
+flex-direction: column;
+padding: 60px 24px;
+gap: 30px;
+}
+
+#community-left {
+max-width: 100%;
+}
+
+
+}
+
+</style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <div id="hero" style="height: 40vh;">
+        <div id="top">
+            <div id="logo"><h1>GTIF</h1></div>
+            <div id="menu">
+                <a href="index.html">Home</a>
+                <p style="color: #C8973A;">About</p>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div id="about-slogan">
+            <h2>About GTIF</h2>
+            <p>Georgetown's student-run technology investment fund focused on valuation, innovation, and career development.</p>
+        </div>
+    </div>
+
+    <!-- WHO WE ARE -->
+    <div id="who-we-are">
+        <div id="who-left">
+            <p>Our Story</p>
+            <h2>Who We Are</h2>
+        </div>
+        <div id="who-right">
+            <p>The Georgetown Technology Investment Fund is a student-led investment organization dedicated to developing the next generation of technology investors. GTIF provides Georgetown students with a rigorous, hands-on learning environment focused on analyzing, valuing, and understanding technology-driven businesses across public and private markets.</p>
+        </div>
+    </div>
+
+    <!-- MISSION + VISION -->
+    <div id="mission-vision">
+        <div id="mission-block">
+            <h3>Mission</h3>
+            <p>To equip Georgetown undergraduate students with world-class valuation skills, industry connections, and career placement opportunities in technology investing.</p>
+        </div>
+        <div id="vision-block">
+            <h3>Vision</h3>
+            <p>To become the nation's premier undergraduate student-run technology investment fund, bridging the gap between Georgetown University and Silicon Valley.</p>
+        </div>
+    </div>
+
+    <!-- WHY GTIF EXISTS -->
+    <div id="why-gtif">
+        <div id="why-left">
+            <p>Our Purpose</p>
+            <h2>Why GTIF Exists</h2>
+        </div>
+        <div id="why-right">
+            <p>GTIF was founded to address a clear gap in Georgetown's student investment landscape. While Georgetown has several strong investment organizations, most provide broad generalist coverage or focus on other specialized areas. GTIF offers a dedicated platform for students interested in technology investing, giving members the opportunity to develop deeper expertise in the industries shaping the future of public and private markets.</p>
+        </div>
+    </div>
+
+    <!-- WHY TECHNOLOGY INVESTING -->
+    <div id="why-tech">
+        <div id="tech-left">
+            <p>The Case for Tech</p>
+            <h2>Why Technology Investing</h2>
+        </div>
+        <div id="tech-right">
+            <p>Technology is one of the most important forces shaping the modern economy. From software and artificial intelligence to semiconductors, fintech, healthcare technology, and digital platforms, technology is now embedded across nearly every major industry. Because these companies often rely on intangible assets, recurring revenue models, research and development, network effects, and long-term scalability, they require a specialized valuation approach. GTIF gives students the tools to understand these businesses at a deeper level.</p>
+        </div>
+    </div>
+
+    <!-- WHAT WE DO -->
+    <div id="what-we-do">
+        <p class="eyebrow">Activities</p>
+        <h2>What We Do</h2>
+        <div id="what-grid">
+
+            <div class="what-card">
+                <span>📊</span>
+                <h4>Investment Research</h4>
+                <p>Technology-focused equity research across software, AI, semiconductors, fintech, and digital platforms.</p>
+            </div>
+
+            <div class="what-card">
+                <span>📐</span>
+                <h4>Analyst Training</h4>
+                <p>Structured curriculum in accounting, financial modeling, and valuation built for tech business models.</p>
+            </div>
+
+            <div class="what-card">
+                <span>🎯</span>
+                <h4>Stock Pitches</h4>
+                <p>Formal investment presentations and simulated portfolio management, mirroring real fund processes.</p>
+            </div>
+
+            <div class="what-card">
+                <span>🤝</span>
+                <h4>Mentorship</h4>
+                <p>Guidance from experienced student leaders and alumni navigating careers in finance and technology.</p>
+            </div>
+
+            <div class="what-card">
+                <span>🔗</span>
+                <h4>Speaker Events & Networking</h4>
+                <p>Industry professionals, alumni connections, and recruiting events across finance and tech.</p>
+            </div>
+
+            <div class="what-card">
+                <span>🚀</span>
+                <h4>Career Preparation</h4>
+                <p>Targeted prep for investment banking, venture capital, equity research, private equity, and tech startups.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TRAINING + INVESTMENT PROCESS -->
+    <div id="training">
+        <p class="eyebrow">How We Operate</p>
+        <h2>Training & Investment Process</h2>
+        <div id="process-steps">
+
+            <div class="process-step">
+                <p class="step-num">Phase 01</p>
+                <h4>Foundations</h4>
+                <p class="step-desc">Accounting, valuation, financial modeling, and technology business model basics.</p>
+            </div>
+
+            <div class="process-step">
+                <p class="step-num">Phase 02</p>
+                <h4>Sector Deep Dives</h4>
+                <p class="step-desc">Coverage across software, AI, semiconductors, fintech, and tech-enabled services.</p>
+            </div>
+
+            <div class="process-step">
+                <p class="step-num">Phase 03</p>
+                <h4>Stock Pitch</h4>
+                <p class="step-desc">Teams prepare formal investment recommendations presented to the full fund.</p>
+            </div>
+
+            <div class="process-step">
+                <p class="step-num">Phase 04</p>
+                <h4>Simulated Portfolio</h4>
+                <p class="step-desc">Approved ideas tracked in a live portfolio, with real AUM as a future goal.</p>
+            </div>
+
+        </div>
+        <div id="training-body">
+            <p>GTIF's analyst program is designed to turn interest into real investment skill. New members learn accounting, valuation, financial modeling, technology business models, and investment research before working in teams to prepare formal stock pitches. Approved investment ideas will be tracked through a simulated portfolio, allowing members to experience the responsibilities of a real investment fund while keeping the organization focused on education, discipline, and long-term development.</p>
+        </div>
+    </div>
+
+    <!-- COMMUNITY + CULTURE -->
+    <div id="community">
+        <div id="community-left">
+            <p>Our Culture</p>
+            <h2>Community & Culture</h2>
+        </div>
+        <div id="community-right">
+            <p>At its core, GTIF is more than an investment club. It is a mentorship-driven community built around curiosity, ambition, collaboration, and applied learning. Members work closely with peers, receive guidance from experienced student leaders, present professional-quality investment ideas, and build the confidence needed to pursue competitive careers in finance and technology.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer">
+        <p>© 2026 Georgetown Technology Investment Fund</p>
+        <p>Georgetown University · Washington, D.C.</p>
+    </div>
+
+</body>
+</html>
