@@ -266,17 +266,26 @@ margin-bottom: 50px;
 
 .process-step {
 flex: 1;
-padding: 32px 28px 32px 0;
+padding: 32px 28px;
 border-right: 1px solid rgba(255,255,255,0.12);
 }
 
 .process-step:last-child {
 border-right: none;
-padding-left: 28px;
 }
 
-.process-step:not(:first-child) {
-padding-left: 28px;
+.process-step:nth-child(odd) {
+background: #041E42;
+border-right-color: rgba(255,255,255,0.12);
+}
+
+.process-step:nth-child(even) {
+background: #C8973A;
+border-right-color: rgba(255,255,255,0.2);
+}
+
+.process-step:nth-child(even) p.step-num {
+color: #041E42;
 }
 
 .process-step p.step-num {
