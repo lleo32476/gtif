@@ -14,7 +14,7 @@ html, body {
 
 #hero {
     position: relative;
-    background-image: url('Georgetown_Backdrop.jpeg');
+    background-image: url('Georgetown_Backdrop.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
