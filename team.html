@@ -70,9 +70,10 @@ font-weight: bold;
 
 #members-grid {
 display: grid;
-grid-template-columns: repeat(2, 1fr);
+grid-template-columns: repeat(3, 1fr);
 gap: 24px;
-max-width: 900px;
+max-width: 1200px;
+align-items: start;
 }
 
 .member-card {
@@ -86,12 +87,6 @@ display: flex;
 align-items: center;
 gap: 24px;
 padding: 24px;
-cursor: pointer;
-transition: background 0.15s;
-}
-
-.member-header:hover {
-background: #fafafa;
 }
 
 .member-photo {
@@ -123,42 +118,7 @@ text-transform: uppercase;
 color: #C8973A;
 }
 
-.member-toggle {
-width: 28px;
-height: 28px;
-border-radius: 50%;
-background: #041E42;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
-transition: background 0.2s, transform 0.3s;
-}
-
-.member-toggle svg {
-width: 12px;
-height: 12px;
-fill: white;
-transition: transform 0.3s;
-}
-
-.member-card.open .member-toggle {
-background: #C8973A;
-}
-
-.member-card.open .member-toggle svg {
-transform: rotate(45deg);
-}
-
 .member-dropdown {
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.35s ease, padding 0.3s;
-border-top: 1px solid transparent;
-}
-
-.member-card.open .member-dropdown {
-max-height: 300px;
 border-top: 1px solid rgba(0,0,0,0.06);
 }
 
@@ -198,6 +158,12 @@ color: rgba(0,0,0,0.35);
 font-size: 0.9rem;
 letter-spacing: 0.08em;
 font-family: Georgia, serif;
+}
+
+@media (max-width: 1100px) {
+#members-grid {
+grid-template-columns: repeat(2, 1fr);
+}
 }
 
 @media (max-width: 700px) {
@@ -250,14 +216,11 @@ padding: 60px 24px;
 
 <!-- Ricky -->
 <div class="member-card" id="card-ricky">
-<div class="member-header" onclick="toggleCard('card-ricky')">
+<div class="member-header">
 <img class="member-photo" src="Roncallo_Ricardo_132-_783-retouched.jpeg" alt="Ricky">
 <div class="member-info">
 <div class="member-name">Ricky</div>
 <div class="member-role">Co-Founder</div>
-</div>
-<div class="member-toggle">
-<svg viewBox="0 0 12 12"><path d="M6 0v12M0 6h12"/></svg>
 </div>
 </div>
 <div class="member-dropdown">
@@ -276,14 +239,11 @@ padding: 60px 24px;
 
 <!-- Artur -->
 <div class="member-card" id="card-artur">
-<div class="member-header" onclick="toggleCard('card-artur')">
+<div class="member-header">
 <img class="member-photo" src="Art.jpeg" alt="Artur">
 <div class="member-info">
 <div class="member-name">Artur</div>
 <div class="member-role">Co-Founder</div>
-</div>
-<div class="member-toggle">
-<svg viewBox="0 0 12 12"><path d="M6 0v12M0 6h12"/></svg>
 </div>
 </div>
 <div class="member-dropdown">
@@ -321,11 +281,6 @@ el.classList.add('active');
 document.querySelectorAll('.team-page').forEach(p => p.classList.remove('active'));
 const target = page === 'exec' ? 'exec-page' : 'advisory-page';
 document.getElementById(target).classList.add('active');
-}
-
-function toggleCard(id) {
-const card = document.getElementById(id);
-card.classList.toggle('open');
 }
 </script>
 

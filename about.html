@@ -7,437 +7,366 @@
 <link rel="stylesheet" href="style.css">
 <style>
 
+/* ============================================
+   TOKENS — one place to tune the whole page
+   ============================================ */
+:root {
+    --navy: #041E42;
+    --navy-deep: #02152E;      /* darkest — replaces the old pure black */
+    --navy-lift: #0A2B54;      /* lighter stripe / panel tint */
+    --gold: #C8973A;
+    --gold-soft: rgba(200, 151, 58, 0.35);
+    --paper: #f8f6f2;
+    --ink: rgba(0, 0, 0, 0.68);
+    --ink-soft: rgba(0, 0, 0, 0.55);
+    --white-ink: rgba(255, 255, 255, 0.72);
+    --white-soft: rgba(255, 255, 255, 0.55);
+    --hairline-dark: rgba(0, 0, 0, 0.08);
+    --hairline-light: rgba(255, 255, 255, 0.14);
+    --pad-y: 100px;
+    --pad-x: 100px;
+    --measure: 640px;          /* max width for body paragraphs */
+}
+
+/* ============================================
+   HERO
+   ============================================ */
 #about-slogan {
-position: absolute;
-bottom: 40px;
-left: 40px;
-color: white;
+    position: absolute;
+    bottom: 48px;
+    left: 40px;
+    color: white;
+}
+
+#about-slogan .eyebrow {
+    color: var(--gold);
+    margin-bottom: 12px;
 }
 
 #about-slogan h2 {
-font-size: 3rem;
-font-weight: bold;
-text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    font-size: 3.2rem;
+    font-weight: bold;
+    line-height: 1.1;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
-#about-slogan p {
-font-size: 1.1rem;
-margin-top: 10px;
-max-width: 560px;
-line-height: 1.6;
-text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-letter-spacing: 0.05em;
+#about-slogan > p:not(.eyebrow) {
+    font-size: 1.1rem;
+    margin-top: 14px;
+    max-width: 560px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    letter-spacing: 0.03em;
+    color: rgba(255,255,255,0.85);
 }
 
-#who-we-are {
-display: flex;
-gap: 80px;
-padding: 90px 100px;
-background: #fff;
-align-items: flex-start;
+/* ============================================
+   SHARED SECTION SYSTEM
+   Every section uses .section + a background
+   variant, so spacing stays consistent and
+   there's one set of rules to maintain.
+   ============================================ */
+.section {
+    padding: var(--pad-y) var(--pad-x);
 }
 
-#who-left {
-flex: 1;
-max-width: 280px;
+.section-inner {
+    max-width: 1160px;
+    margin: 0 auto;
 }
 
-#who-left p {
-font-size: 0.72rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #C8973A;
-margin-bottom: 10px;
+.bg-white  { background: #fff; }
+.bg-paper  { background: var(--paper); }
+.bg-navy   { background: var(--navy); }
+.bg-deep   { background: var(--navy-deep); }
+
+/* Eyebrow label — identical treatment everywhere */
+.eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
 }
 
-#who-left h2 {
-font-size: 2rem;
-color: #041E42;
-line-height: 1.25;
+/* Two-column split: narrow heading left, prose right */
+.split {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
 }
 
-#who-right {
-flex: 2;
+.split-label {
+    flex: 1;
+    max-width: 280px;
 }
 
-#who-right p {
-font-size: 1rem;
-line-height: 1.9;
-color: rgba(0,0,0,0.65);
+.split-label h2 {
+    font-size: 2rem;
+    line-height: 1.25;
+    color: var(--navy);
 }
 
-#mission-vision {
-display: flex;
-gap: 60px;
-padding: 80px 100px;
-background: #041E42;
+.split-body {
+    flex: 2;
 }
 
-#mission-block {
-flex: 1;
-border-left: 2px solid #C8973A;
-padding-left: 28px;
+.split-body p {
+    font-size: 1.02rem;
+    line-height: 1.9;
+    color: var(--ink);
+    max-width: var(--measure);
 }
 
-#mission-block h3 {
-font-size: 0.72rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #C8973A;
-margin-bottom: 14px;
+.split-body p + p {
+    margin-top: 1.2em;
 }
 
-#mission-block p {
-font-size: 1.05rem;
-color: white;
-line-height: 1.75;
+/* Dark-section overrides */
+.bg-navy .split-label h2,
+.bg-deep .split-label h2 {
+    color: #fff;
 }
 
-#vision-block {
-flex: 1;
-border-left: 2px solid #C8973A;
-padding-left: 28px;
+.bg-navy .split-body p,
+.bg-deep .split-body p {
+    color: var(--white-ink);
 }
 
-#vision-block h3 {
-font-size: 0.72rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #C8973A;
-margin-bottom: 14px;
+/* ============================================
+   MISSION + VISION
+   ============================================ */
+#mission-vision .section-inner {
+    display: flex;
+    gap: 60px;
 }
 
-#vision-block p {
-font-size: 1.05rem;
-color: white;
-line-height: 1.75;
+.statement {
+    flex: 1;
+    border-left: 2px solid var(--gold);
+    padding-left: 28px;
 }
 
-#why-gtif {
-display: flex;
-gap: 80px;
-padding: 90px 100px;
-background: #f8f6f2;
-align-items: flex-start;
+.statement h3 {
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
 }
 
-#why-left {
-flex: 1;
-max-width: 280px;
+.statement p {
+    font-size: 1.1rem;
+    color: #fff;
+    line-height: 1.75;
 }
 
-#why-left p {
-font-size: 0.72rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #C8973A;
-margin-bottom: 10px;
-}
-
-#why-left h2 {
-font-size: 2rem;
-color: #041E42;
-line-height: 1.25;
-}
-
-#why-right {
-flex: 2;
-}
-
-#why-right p {
-font-size: 1rem;
-line-height: 1.9;
-color: rgba(0,0,0,0.65);
-}
-
-#why-tech {
-display: flex;
-gap: 80px;
-padding: 90px 100px;
-background: #000;
-align-items: flex-start;
-}
-
-#tech-left {
-flex: 1;
-max-width: 280px;
-}
-
-#tech-left p {
-font-size: 0.72rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #C8973A;
-margin-bottom: 10px;
-}
-
-#tech-left h2 {
-font-size: 2rem;
-color: white;
-line-height: 1.25;
-}
-
-#tech-right {
-flex: 2;
-}
-
-#tech-right p {
-font-size: 1rem;
-line-height: 1.9;
-color: rgba(255,255,255,0.65);
-}
-
-#what-we-do {
-padding: 90px 100px;
-background: #fff;
-}
-
-#what-we-do p.eyebrow {
-font-size: 0.72rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #C8973A;
-margin-bottom: 10px;
-}
-
+/* ============================================
+   WHAT WE DO — card grid
+   ============================================ */
 #what-we-do h2 {
-font-size: 2rem;
-color: #041E42;
-margin-bottom: 50px;
+    font-size: 2rem;
+    color: var(--navy);
+    margin-bottom: 50px;
 }
 
 #what-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .what-card {
-background: #f8f6f2;
-border: 1px solid rgba(0,0,0,0.08);
-padding: 28px 24px;
+    background: var(--paper);
+    border: 1px solid var(--hairline-dark);
+    border-top: 2px solid var(--gold-soft);
+    padding: 30px 26px;
+    transition: border-top-color 0.25s ease, transform 0.25s ease;
 }
 
-.what-card span {
-font-size: 1.4rem;
-display: block;
-margin-bottom: 14px;
+.what-card:hover {
+    border-top-color: var(--gold);
+    transform: translateY(-3px);
 }
 
 .what-card h4 {
-font-size: 0.82rem;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-color: #041E42;
-margin-bottom: 10px;
+    font-size: 0.84rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
 }
 
 .what-card p {
-font-size: 0.9rem;
-line-height: 1.7;
-color: rgba(0,0,0,0.58);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
 }
 
-#training {
-padding: 90px 100px;
-background: #041E42;
-}
-
-#training p.eyebrow {
-font-size: 0.72rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #C8973A;
-margin-bottom: 10px;
-}
-
+/* ============================================
+   TRAINING & PROCESS — the signature element
+   A gold track runs across the top; each phase
+   sits on the track with a gold marker. All
+   panels stay in the navy family so text keeps
+   its contrast; gold is the connector, not a fill.
+   ============================================ */
 #training h2 {
-font-size: 2rem;
-color: white;
-margin-bottom: 50px;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 60px;
 }
 
 #process-steps {
-display: flex;
-gap: 0;
-border-top: 1px solid rgba(255,255,255,0.12);
-margin-bottom: 50px;
+    display: flex;
+    border-top: 2px solid var(--gold);
+    margin-bottom: 56px;
 }
 
 .process-step {
-flex: 1;
-padding: 32px 28px;
-border-right: 1px solid rgba(255,255,255,0.12);
+    flex: 1;
+    position: relative;
+    padding: 36px 28px 32px;
+    border-right: 1px solid var(--hairline-light);
 }
 
 .process-step:last-child {
-border-right: none;
+    border-right: none;
 }
 
-.process-step:nth-child(odd) {
-background: #041E42;
-border-right-color: rgba(255,255,255,0.12);
-}
-
+/* subtle alternating stripe, same color family */
 .process-step:nth-child(even) {
-background: #C8973A;
-border-right-color: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.045);
 }
 
-.process-step:nth-child(even) p.step-num {
-color: #041E42;
+/* gold marker sitting on the track */
+.process-step::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 28px;
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    transform: rotate(45deg);
 }
 
-.process-step p.step-num {
-font-size: 0.72rem;
-letter-spacing: 0.2em;
-color: #C8973A;
-text-transform: uppercase;
-margin-bottom: 12px;
+.process-step .step-num {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
 .process-step h4 {
-font-size: 1rem;
-color: white;
-margin-bottom: 10px;
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
-.process-step p.step-desc {
-font-size: 0.88rem;
-line-height: 1.7;
-color: rgba(255,255,255,0.55);
+.process-step .step-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--white-soft);
 }
 
 #training-body p {
-font-size: 1rem;
-line-height: 1.9;
-color: rgba(255,255,255,0.65);
-max-width: 760px;
+    font-size: 1.02rem;
+    line-height: 1.9;
+    color: var(--white-ink);
+    max-width: 760px;
 }
 
-#community {
-display: flex;
-gap: 80px;
-padding: 90px 100px;
-background: #f8f6f2;
-align-items: flex-start;
+/* ============================================
+   SCROLL REVEAL — gentle, and disabled for
+   users who prefer reduced motion
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-#community-left {
-flex: 1;
-max-width: 280px;
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
 }
 
-#community-left p {
-font-size: 0.72rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #C8973A;
-margin-bottom: 10px;
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .what-card,
+    .what-card:hover {
+        transform: none;
+    }
 }
 
-#community-left h2 {
-font-size: 2rem;
-color: #041E42;
-line-height: 1.25;
-}
-
-#community-right {
-flex: 2;
-}
-
-#community-right p {
-font-size: 1rem;
-line-height: 1.9;
-color: rgba(0,0,0,0.65);
-}
-
-
+/* ============================================
+   MOBILE
+   ============================================ */
 @media (max-width: 600px) {
 
-#about-slogan {
-left: 24px;
-bottom: 50px;
-}
+    :root {
+        --pad-y: 64px;
+        --pad-x: 24px;
+    }
 
-#about-slogan h2 {
-font-size: 1.8rem;
-}
+    #about-slogan {
+        left: 24px;
+        right: 24px;
+        bottom: 40px;
+    }
 
-#about-slogan p {
-font-size: 0.95rem;
-}
+    #about-slogan h2 {
+        font-size: 2rem;
+    }
 
-#who-we-are {
-flex-direction: column;
-padding: 60px 24px;
-gap: 30px;
-}
+    #about-slogan > p:not(.eyebrow) {
+        font-size: 0.95rem;
+    }
 
-#who-left {
-max-width: 100%;
-}
+    .split {
+        flex-direction: column;
+        gap: 28px;
+    }
 
-#mission-vision {
-flex-direction: column;
-padding: 60px 24px;
-gap: 40px;
-}
+    .split-label {
+        max-width: 100%;
+    }
 
-#why-gtif {
-flex-direction: column;
-padding: 60px 24px;
-gap: 30px;
-}
+    #mission-vision .section-inner {
+        flex-direction: column;
+        gap: 40px;
+    }
 
-#why-left {
-max-width: 100%;
-}
+    #what-grid {
+        grid-template-columns: 1fr;
+    }
 
-#why-tech {
-flex-direction: column;
-padding: 60px 24px;
-gap: 30px;
-}
+    #process-steps {
+        flex-direction: column;
+        border-top: none;
+        border-left: 2px solid var(--gold);
+    }
 
-#tech-left {
-max-width: 100%;
-}
+    .process-step {
+        border-right: none;
+        border-bottom: 1px solid var(--hairline-light);
+        padding: 28px 24px;
+    }
 
-#what-we-do {
-padding: 60px 24px;
-}
+    .process-step:last-child {
+        border-bottom: none;
+    }
 
-#what-grid {
-grid-template-columns: 1fr;
-}
-
-#training {
-padding: 60px 24px;
-}
-
-#process-steps {
-flex-direction: column;
-border-top: none;
-}
-
-.process-step {
-border-right: none;
-border-top: 1px solid rgba(255,255,255,0.12);
-padding: 24px 0 !important;
-}
-
-#community {
-flex-direction: column;
-padding: 60px 24px;
-gap: 30px;
-}
-
-#community-left {
-max-width: 100%;
-}
-
-
+    /* marker moves to the left rail on mobile */
+    .process-step::before {
+        top: 34px;
+        left: -6px;
+    }
 }
 
 </style>
@@ -445,7 +374,7 @@ max-width: 100%;
 <body>
 
     <!-- HERO -->
-    <div id="hero" style="height: 40vh;">
+    <div id="hero" style="height: 44vh;">
         <div id="top">
             <div id="logo"><h1>GTIF</h1></div>
             <div id="menu">
@@ -456,145 +385,154 @@ max-width: 100%;
             </div>
         </div>
         <div id="about-slogan">
-            <h2>About GTIF</h2>
-            <p>Georgetown's student-run technology investment fund focused on valuation, innovation, and career development.</p>
+            <h2>Built to train technology investors.</h2>
+            <p>A student-run fund where Georgetown undergraduates learn to analyze, value, and pitch the businesses shaping public and private markets.</p>
         </div>
     </div>
 
     <!-- WHO WE ARE -->
-    <div id="who-we-are">
-        <div id="who-left">
-            <p>Our Story</p>
-            <h2>Who We Are</h2>
-        </div>
-        <div id="who-right">
-            <p>The Georgetown Technology Investment Fund is a student-led investment organization dedicated to developing the next generation of technology investors. GTIF provides Georgetown students with a rigorous, hands-on learning environment focused on analyzing, valuing, and understanding technology-driven businesses across public and private markets.</p>
+    <div class="section bg-white reveal" id="who-we-are">
+        <div class="section-inner split">
+            <div class="split-label">
+                <p class="eyebrow">Our Story</p>
+                <h2>Who We Are</h2>
+            </div>
+            <div class="split-body">
+                <p>The Georgetown Technology Investment Fund is a student-led investment organization dedicated to developing the next generation of technology investors. GTIF gives Georgetown students a rigorous, hands-on environment for analyzing, valuing, and understanding technology-driven businesses across public and private markets.</p>
+            </div>
         </div>
     </div>
 
     <!-- MISSION + VISION -->
-    <div id="mission-vision">
-        <div id="mission-block">
-            <h3>Mission</h3>
-            <p>To equip Georgetown undergraduate students with world-class valuation skills, industry connections, and career placement opportunities in technology investing.</p>
-        </div>
-        <div id="vision-block">
-            <h3>Vision</h3>
-            <p>To become the nation's premier undergraduate student-run technology investment fund, bridging the gap between Georgetown University and Silicon Valley.</p>
+    <div class="section bg-navy reveal" id="mission-vision">
+        <div class="section-inner">
+            <div class="statement">
+                <h3>Mission</h3>
+                <p>To equip Georgetown undergraduates with world-class valuation skills, industry connections, and career placement in technology investing.</p>
+            </div>
+            <div class="statement">
+                <h3>Vision</h3>
+                <p>To become the nation's premier undergraduate technology investment fund, bridging Georgetown and Silicon Valley.</p>
+            </div>
         </div>
     </div>
 
     <!-- WHY GTIF EXISTS -->
-    <div id="why-gtif">
-        <div id="why-left">
-            <p>Our Purpose</p>
-            <h2>Why GTIF Exists</h2>
-        </div>
-        <div id="why-right">
-            <p>GTIF was founded to address a clear gap in Georgetown's student investment landscape. While Georgetown has several strong investment organizations, most provide broad generalist coverage or focus on other specialized areas. GTIF offers a dedicated platform for students interested in technology investing, giving members the opportunity to develop deeper expertise in the industries shaping the future of public and private markets.</p>
+    <div class="section bg-paper reveal" id="why-gtif">
+        <div class="section-inner split">
+            <div class="split-label">
+                <p class="eyebrow">Our Purpose</p>
+                <h2>Why GTIF Exists</h2>
+            </div>
+            <div class="split-body">
+                <p>GTIF was founded to fill a clear gap in Georgetown's student investment landscape. Most existing organizations provide broad generalist coverage or focus on other specialized areas. GTIF is a dedicated platform for students serious about technology investing — a place to build deeper expertise in the industries defining the future of markets.</p>
+            </div>
         </div>
     </div>
 
     <!-- WHY TECHNOLOGY INVESTING -->
-    <div id="why-tech">
-        <div id="tech-left">
-            <p>The Case for Tech</p>
-            <h2>Why Technology Investing</h2>
-        </div>
-        <div id="tech-right">
-            <p>Technology is one of the most important forces shaping the modern economy. From software and artificial intelligence to semiconductors, fintech, healthcare technology, and digital platforms, technology is now embedded across nearly every major industry. Because these companies often rely on intangible assets, recurring revenue models, research and development, network effects, and long-term scalability, they require a specialized valuation approach. GTIF gives students the tools to understand these businesses at a deeper level.</p>
+    <div class="section bg-deep reveal" id="why-tech">
+        <div class="section-inner split">
+            <div class="split-label">
+                <p class="eyebrow">The Case for Tech</p>
+                <h2>Why Technology Investing</h2>
+            </div>
+            <div class="split-body">
+                <p>Technology is the defining force of the modern economy. From software and artificial intelligence to semiconductors, fintech, and digital platforms, it is now embedded across nearly every major industry.</p>
+                <p>These businesses run on intangible assets, recurring revenue, research and development, and network effects — and that demands a specialized valuation approach. GTIF gives students the tools to understand them at a deeper level.</p>
+            </div>
         </div>
     </div>
 
     <!-- WHAT WE DO -->
-    <div id="what-we-do">
-        <p class="eyebrow">Activities</p>
-        <h2>What We Do</h2>
-        <div id="what-grid">
+    <div class="section bg-white reveal" id="what-we-do">
+        <div class="section-inner">
+            <p class="eyebrow">Activities</p>
+            <h2>What We Do</h2>
+            <div id="what-grid">
 
-            <div class="what-card">
-                <span>📊</span>
-                <h4>Investment Research</h4>
-                <p>Technology-focused equity research across software, AI, semiconductors, fintech, and digital platforms.</p>
+                <div class="what-card">
+                    <h4>Investment Research</h4>
+                    <p>Technology-focused equity research across software, AI, semiconductors, fintech, and digital platforms.</p>
+                </div>
+
+                <div class="what-card">
+                    <h4>Analyst Training</h4>
+                    <p>A structured curriculum in accounting, financial modeling, and valuation built for tech business models.</p>
+                </div>
+
+                <div class="what-card">
+                    <h4>Stock Pitches</h4>
+                    <p>Formal investment presentations and simulated portfolio management, mirroring real fund processes.</p>
+                </div>
+
+                <div class="what-card">
+                    <h4>Mentorship</h4>
+                    <p>Guidance from experienced student leaders and alumni navigating careers in finance and technology.</p>
+                </div>
+
+                <div class="what-card">
+                    <h4>Speakers &amp; Networking</h4>
+                    <p>Industry professionals, alumni connections, and recruiting events across finance and tech.</p>
+                </div>
+
+                <div class="what-card">
+                    <h4>Career Preparation</h4>
+                    <p>Targeted prep for investment banking, venture capital, equity research, private equity, and startups.</p>
+                </div>
+
             </div>
-
-            <div class="what-card">
-                <span>📐</span>
-                <h4>Analyst Training</h4>
-                <p>Structured curriculum in accounting, financial modeling, and valuation built for tech business models.</p>
-            </div>
-
-            <div class="what-card">
-                <span>🎯</span>
-                <h4>Stock Pitches</h4>
-                <p>Formal investment presentations and simulated portfolio management, mirroring real fund processes.</p>
-            </div>
-
-            <div class="what-card">
-                <span>🤝</span>
-                <h4>Mentorship</h4>
-                <p>Guidance from experienced student leaders and alumni navigating careers in finance and technology.</p>
-            </div>
-
-            <div class="what-card">
-                <span>🔗</span>
-                <h4>Speaker Events & Networking</h4>
-                <p>Industry professionals, alumni connections, and recruiting events across finance and tech.</p>
-            </div>
-
-            <div class="what-card">
-                <span>🚀</span>
-                <h4>Career Preparation</h4>
-                <p>Targeted prep for investment banking, venture capital, equity research, private equity, and tech startups.</p>
-            </div>
-
         </div>
     </div>
 
     <!-- TRAINING + INVESTMENT PROCESS -->
-    <div id="training">
-        <p class="eyebrow">How We Operate</p>
-        <h2>Training & Investment Process</h2>
-        <div id="process-steps">
+    <div class="section bg-navy reveal" id="training">
+        <div class="section-inner">
+            <p class="eyebrow">How We Operate</p>
+            <h2>Training &amp; Investment Process</h2>
+            <div id="process-steps">
 
-            <div class="process-step">
-                <p class="step-num">Phase 01</p>
-                <h4>Foundations</h4>
-                <p class="step-desc">Accounting, valuation, financial modeling, and technology business model basics.</p>
+                <div class="process-step">
+                    <p class="step-num">Phase 01</p>
+                    <h4>Foundations</h4>
+                    <p class="step-desc">Accounting, valuation, financial modeling, and technology business model basics.</p>
+                </div>
+
+                <div class="process-step">
+                    <p class="step-num">Phase 02</p>
+                    <h4>Sector Deep Dives</h4>
+                    <p class="step-desc">Coverage across software, AI, semiconductors, fintech, and tech-enabled services.</p>
+                </div>
+
+                <div class="process-step">
+                    <p class="step-num">Phase 03</p>
+                    <h4>Stock Pitch</h4>
+                    <p class="step-desc">Teams prepare formal investment recommendations presented to the full fund.</p>
+                </div>
+
+                <div class="process-step">
+                    <p class="step-num">Phase 04</p>
+                    <h4>Simulated Portfolio</h4>
+                    <p class="step-desc">Approved ideas tracked in a live portfolio, with real AUM as a future goal.</p>
+                </div>
+
             </div>
-
-            <div class="process-step">
-                <p class="step-num">Phase 02</p>
-                <h4>Sector Deep Dives</h4>
-                <p class="step-desc">Coverage across software, AI, semiconductors, fintech, and tech-enabled services.</p>
+            <div id="training-body">
+                <p>GTIF's analyst program turns interest into real investment skill. New members learn accounting, valuation, financial modeling, and technology business models before working in teams to prepare formal stock pitches. Approved ideas are tracked through a simulated portfolio, giving members the responsibilities of a real fund while keeping the organization focused on education, discipline, and long-term development.</p>
             </div>
-
-            <div class="process-step">
-                <p class="step-num">Phase 03</p>
-                <h4>Stock Pitch</h4>
-                <p class="step-desc">Teams prepare formal investment recommendations presented to the full fund.</p>
-            </div>
-
-            <div class="process-step">
-                <p class="step-num">Phase 04</p>
-                <h4>Simulated Portfolio</h4>
-                <p class="step-desc">Approved ideas tracked in a live portfolio, with real AUM as a future goal.</p>
-            </div>
-
-        </div>
-        <div id="training-body">
-            <p>GTIF's analyst program is designed to turn interest into real investment skill. New members learn accounting, valuation, financial modeling, technology business models, and investment research before working in teams to prepare formal stock pitches. Approved investment ideas will be tracked through a simulated portfolio, allowing members to experience the responsibilities of a real investment fund while keeping the organization focused on education, discipline, and long-term development.</p>
         </div>
     </div>
 
     <!-- COMMUNITY + CULTURE -->
-    <div id="community">
-        <div id="community-left">
-            <p>Our Culture</p>
-            <h2>Community & Culture</h2>
-        </div>
-        <div id="community-right">
-            <p>At its core, GTIF is more than an investment club. It is a mentorship-driven community built around curiosity, ambition, collaboration, and applied learning. Members work closely with peers, receive guidance from experienced student leaders, present professional-quality investment ideas, and build the confidence needed to pursue competitive careers in finance and technology.</p>
+    <div class="section bg-paper reveal" id="community">
+        <div class="section-inner split">
+            <div class="split-label">
+                <p class="eyebrow">Our Culture</p>
+                <h2>Community &amp; Culture</h2>
+            </div>
+            <div class="split-body">
+                <p>At its core, GTIF is more than an investment club. It is a mentorship-driven community built on curiosity, ambition, and applied learning. Members work closely with peers, present professional-quality investment ideas, and build the confidence to pursue competitive careers in finance and technology.</p>
+            </div>
         </div>
     </div>
 
@@ -603,6 +541,26 @@ max-width: 100%;
         <p>© 2026 Georgetown Technology Investment Fund</p>
         <p>Georgetown University · Washington, D.C.</p>
     </div>
+
+    <script>
+    // Gentle scroll reveal; sections appear once as they enter the viewport.
+    (function () {
+        var sections = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+            sections.forEach(function (s) { s.classList.add('is-visible'); });
+            return;
+        }
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        sections.forEach(function (s) { observer.observe(s); });
+    })();
+    </script>
 
 </body>
 </html>
