@@ -36,6 +36,12 @@ html, body {
     letter-spacing: 0.1em;
 }
 
+#logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
 #menu {
     display: flex;
     gap: 28px;
@@ -165,6 +171,10 @@ html, body {
     /* Smaller menu gap on mobile */
     #menu {
         gap: 16px;
+    }
+
+    #logo img {
+        height: 56px;
     }
 
     #menu p {
