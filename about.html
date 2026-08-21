@@ -7,13 +7,10 @@
 <link rel="stylesheet" href="style.css">
 <style>
 
-/* ============================================
-   TOKENS — one place to tune the whole page
-   ============================================ */
 :root {
     --navy: #041E42;
-    --navy-deep: #02152E;      /* darkest — replaces the old pure black */
-    --navy-lift: #0A2B54;      /* lighter stripe / panel tint */
+    --navy-deep: #02152E;
+    --navy-lift: #0A2B54;
     --gold: #C8973A;
     --gold-soft: rgba(200, 151, 58, 0.35);
     --paper: #f8f6f2;
@@ -25,12 +22,9 @@
     --hairline-light: rgba(255, 255, 255, 0.14);
     --pad-y: 100px;
     --pad-x: 100px;
-    --measure: 640px;          /* max width for body paragraphs */
+    --measure: 640px;
 }
 
-/* ============================================
-   HERO
-   ============================================ */
 #about-slogan {
     position: absolute;
     bottom: 48px;
@@ -60,12 +54,6 @@
     color: rgba(255,255,255,0.85);
 }
 
-/* ============================================
-   SHARED SECTION SYSTEM
-   Every section uses .section + a background
-   variant, so spacing stays consistent and
-   there's one set of rules to maintain.
-   ============================================ */
 .section {
     padding: var(--pad-y) var(--pad-x);
 }
@@ -80,7 +68,6 @@
 .bg-navy   { background: var(--navy); }
 .bg-deep   { background: var(--navy-deep); }
 
-/* Eyebrow label — identical treatment everywhere */
 .eyebrow {
     font-size: 0.72rem;
     letter-spacing: 0.24em;
@@ -89,7 +76,6 @@
     margin-bottom: 12px;
 }
 
-/* Two-column split: narrow heading left, prose right */
 .split {
     display: flex;
     gap: 80px;
@@ -122,7 +108,6 @@
     margin-top: 1.2em;
 }
 
-/* Dark-section overrides */
 .bg-navy .split-label h2,
 .bg-deep .split-label h2 {
     color: #fff;
@@ -133,9 +118,6 @@
     color: var(--white-ink);
 }
 
-/* ============================================
-   MISSION + VISION
-   ============================================ */
 #mission-vision .section-inner {
     display: flex;
     gap: 60px;
@@ -161,9 +143,6 @@
     line-height: 1.75;
 }
 
-/* ============================================
-   WHAT WE DO — card grid
-   ============================================ */
 #what-we-do h2 {
     font-size: 2rem;
     color: var(--navy);
@@ -203,13 +182,6 @@
     color: var(--ink-soft);
 }
 
-/* ============================================
-   TRAINING & PROCESS — the signature element
-   A gold track runs across the top; each phase
-   sits on the track with a gold marker. All
-   panels stay in the navy family so text keeps
-   its contrast; gold is the connector, not a fill.
-   ============================================ */
 #training h2 {
     font-size: 2rem;
     color: #fff;
@@ -233,12 +205,10 @@
     border-right: none;
 }
 
-/* subtle alternating stripe, same color family */
 .process-step:nth-child(even) {
     background: rgba(255, 255, 255, 0.045);
 }
 
-/* gold marker sitting on the track */
 .process-step::before {
     content: "";
     position: absolute;
@@ -277,10 +247,6 @@
     max-width: 760px;
 }
 
-/* ============================================
-   SCROLL REVEAL — gentle, and disabled for
-   users who prefer reduced motion
-   ============================================ */
 .reveal {
     opacity: 0;
     transform: translateY(18px);
@@ -304,9 +270,6 @@
     }
 }
 
-/* ============================================
-   MOBILE
-   ============================================ */
 @media (max-width: 600px) {
 
     :root {
@@ -362,7 +325,6 @@
         border-bottom: none;
     }
 
-    /* marker moves to the left rail on mobile */
     .process-step::before {
         top: 34px;
         left: -6px;
@@ -373,7 +335,6 @@
 </head>
 <body>
 
-    <!-- HERO -->
     <div id="hero" style="height: 44vh;">
         <div id="top">
             <div id="logo"><a href="index.html"><img src="GTIF_Website_Logo.png" alt="GTIF"></a></div>
@@ -382,7 +343,7 @@
                 <p style="color: #C8973A;">About</p>
                 <a href="team.html">Team</a>
                 <a href="contact.html">Contact</a>
-                <a href="https://forms.gle/4ixJSerNW2WME6WF9" target="_blank" rel="noopener">Apply</a>
+                <a href="https://forms.gle/vr3A9FkrPNzFuDDL7" target="_blank" rel="noopener">Apply</a>
             </div>
         </div>
         <div id="about-slogan">
@@ -391,7 +352,6 @@
         </div>
     </div>
 
-    <!-- WHO WE ARE -->
     <div class="section bg-white reveal" id="who-we-are">
         <div class="section-inner split">
             <div class="split-label">
@@ -404,7 +364,6 @@
         </div>
     </div>
 
-    <!-- MISSION + VISION -->
     <div class="section bg-navy reveal" id="mission-vision">
         <div class="section-inner">
             <div class="statement">
@@ -418,7 +377,6 @@
         </div>
     </div>
 
-    <!-- WHY GTIF EXISTS -->
     <div class="section bg-paper reveal" id="why-gtif">
         <div class="section-inner split">
             <div class="split-label">
@@ -431,7 +389,6 @@
         </div>
     </div>
 
-    <!-- WHY TECHNOLOGY INVESTING -->
     <div class="section bg-deep reveal" id="why-tech">
         <div class="section-inner split">
             <div class="split-label">
@@ -445,7 +402,6 @@
         </div>
     </div>
 
-    <!-- WHAT WE DO -->
     <div class="section bg-white reveal" id="what-we-do">
         <div class="section-inner">
             <p class="eyebrow">Activities</p>
@@ -486,7 +442,6 @@
         </div>
     </div>
 
-    <!-- TRAINING + INVESTMENT PROCESS -->
     <div class="section bg-navy reveal" id="training">
         <div class="section-inner">
             <p class="eyebrow">How We Operate</p>
@@ -524,7 +479,6 @@
         </div>
     </div>
 
-    <!-- COMMUNITY + CULTURE -->
     <div class="section bg-paper reveal" id="community">
         <div class="section-inner split">
             <div class="split-label">
@@ -537,14 +491,12 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <div id="footer">
         <p>© 2026 Georgetown Technology Investment Fund</p>
         <p>Georgetown University · Washington, D.C.</p>
     </div>
 
     <script>
-    // Gentle scroll reveal; sections appear once as they enter the viewport.
     (function () {
         var sections = document.querySelectorAll('.reveal');
         if (!('IntersectionObserver' in window)) {
