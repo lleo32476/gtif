@@ -127,6 +127,7 @@ html, body {
 }
 
 #apply-btn {
+    display: inline-block;
     margin-top: 34px;
     background: #041E42;
     color: white;
@@ -135,6 +136,7 @@ html, body {
     font-size: 0.9rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    text-decoration: none;
     cursor: pointer;
 }
 
